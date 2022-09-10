@@ -1,8 +1,23 @@
+@font-face {
+  font-family: "Lato";
+  src: url(https://use.typekit.net/oil3slk.css);
+}
+
 .wallet {
-  background: #fff;
-  border-radius: 6px;
+  background: #98ECFF;
   cursor: pointer;
-  padding: 14px 18px;
+  padding: 0px 10px 0px 10px;
   text-align: center;
-  
+  font-family: "Lato";
+  font-weight: 600;
+  font-size: 16px;
+  color: #363639;
+  margin-right: 30px;
+ margin-top: 30px;
+ margin-bottom: 0px;
+  border: 2px solid #363639;
+  width: auto;
+  height: 40px;
+  list-style-type: none;
+
 }

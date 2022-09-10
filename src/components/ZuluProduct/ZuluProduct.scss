@@ -1,23 +1,51 @@
+@font-face {
+  font-family: "Lato";
+  src: url(https://use.typekit.net/oil3slk.css);
+}
+
+:root {
+  --base: #f6f5f3;
+  --principal: #363639;
+  --secundario: #f5f5f5;
+  --terciario: #D1D3D4;
+  
+  font-size: 16px;
+  
+}
+
 img {
   margin-top: 10px;
   height: 30%;
   width: 30%;
 }
 .card { 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   height: 100%;
   margin: 0;
+  padding: 40px;
   list-style-type: none;
   transition: 0.3s;
   width: 100%;
+  font-family: "Lato";
   
   &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background: #e2e2e2;
   }
 
   &__container {
     padding: 24px 16px;
     text-align: center;
   }
+}
+
+button {
+  background: #363639;
+  color: #f5f5f5;
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  justify-content: start;
+
 }
 
