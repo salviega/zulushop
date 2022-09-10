@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract ZuluShop is Ownable {
+contract ZuluShopContract is Ownable {
 
     IERC20 private _token;
     uint8 private _decimals;
