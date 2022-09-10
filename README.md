@@ -30,3 +30,5 @@ npm start
 ## Authors 🏗
 
 [salviega](https://github.com/salviega)
+
+[Oriojas’s](https://github.com/Oriojas)
