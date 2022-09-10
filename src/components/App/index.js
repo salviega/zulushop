@@ -16,6 +16,7 @@ import { ZuluContext } from '../ZuluContext/index';
 function App() {
   const {
     products,
+    range,
     loading,
     setLoading,
     error,
@@ -60,6 +61,7 @@ function App() {
             <ZuluProduct 
               key={index} 
               product={product} 
+              range={range}
               setSelectedProduct={setSelectedProduct} 
               setPaid={setPaid}
               openModal={openModal}

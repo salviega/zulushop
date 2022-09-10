@@ -2,12 +2,12 @@ import React from "react";
 import "./ZuluProduct.scss";
 import { v1 as uuid } from 'uuid';
 
-export function ZuluProduct({product, setPaid, setSelectedProduct, openModal, setOpenModal}) {
+export function ZuluProduct({product, range, setPaid, setSelectedProduct, openModal, setOpenModal}) {
   const paid = {
     id: 1,
     refer: uuid(),
     amountToken: Math.round(parseInt(product.price)),
-    amountFiat: Math.round(parseInt(product.price) * 4000)
+    amountFiat: Math.round((parseInt(product.price) * parseInt(range[0].valor)) + 1.02)
   }
 
   const onClickButton = (product) => {
