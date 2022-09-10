@@ -1,12 +1,9 @@
-.products {
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  margin-top: 60px;
+  margin-top: 50px;
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
   padding-right: 0;
 }
-
-
-

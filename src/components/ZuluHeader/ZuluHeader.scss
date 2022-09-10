@@ -12,7 +12,8 @@
   background: #98ECFF;
   height: 100px;
   padding: 0;
-  margin: 0px 10px 0px 10px;
+  margin: 0;
+  top: 0;
   list-style: none;
 
   &__logo {
@@ -64,6 +65,7 @@
       padding: 5px;
       letter-spacing: -0.16px;
       text-decoration: none;
+      font-weight: bold;
       opacity: 0.6;
       color: black;
       &:hover {
@@ -72,4 +74,3 @@
     }
   }
 }
-
