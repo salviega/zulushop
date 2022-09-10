@@ -37,7 +37,7 @@ function App() {
     if (window.ethereum) {
       window.ethereum.on("chainChanged", () => {
         currentNetwork().then((response) => {
-          if (response !== 4) {
+          if (response !== 5) {
             dispatch(authLoguotAction());
           }
         });
@@ -50,12 +50,12 @@ function App() {
 
   return (
     <React.Fragment>
-      <main>
         <ZuluHeader>
           <ZuluWallet />
         </ZuluHeader>
+      <main>
         {error && <ZuluError />}
-        {loading && <ZuluLoading />}
+        {loading ? <ZuluLoading /> :
         <ZuluProducts>
           {products?.map((product, index) => (
             <ZuluProduct 
@@ -68,6 +68,7 @@ function App() {
               setOpenModal={setOpenModal} />
           ))}
         </ZuluProducts>
+        }
       </main>
       {openModal && (
         <ZuluModal>

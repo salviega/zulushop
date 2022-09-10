@@ -6,7 +6,7 @@ import zuluShopContractAbi from "../../blockchain/hardhat/contracts/abis/ZuluSho
 import { ZuluLoading } from "../ZuluLoading";
 import { ethers } from 'ethers';
 
-export function ZuluProductInfo({ selectedProduct, paid, loading, setLoading, setOpenModal }) {
+export function ZuluProductInfo({ selectedProduct, paid, setLoading, setOpenModal }) {
 
   const onCancel = () => {
     setOpenModal(false);
@@ -25,10 +25,11 @@ export function ZuluProductInfo({ selectedProduct, paid, loading, setLoading, se
     );
 
     const response = await zuluUSDDevContract.approve('0x79D45765B2a5C1f833038C6b2e615C7f98Ab9612', paid.amountToken);
+    setOpenModal(false);
     setLoading(true);
     web3Provider
-      .waitForTransaction(response.hash)
-      .then(async (response) => {
+    .waitForTransaction(response.hash)
+    .then(async (response) => {
         const zuluShopContract = new ethers.Contract(
           '0x79D45765B2a5C1f833038C6b2e615C7f98Ab9612',
           zuluShopContractAbi,
@@ -51,13 +52,11 @@ export function ZuluProductInfo({ selectedProduct, paid, loading, setLoading, se
           setLoading(false);
         })
         .catch((error) => {
-          console.log('error :',  error)
           setLoading(false);
           alert("Failed transaction");
         });
       })
       .catch((error) => {
-        console.log('error :',  error)
         setLoading(false);
         alert("Failed transaction");
       });
@@ -65,21 +64,17 @@ export function ZuluProductInfo({ selectedProduct, paid, loading, setLoading, se
 
   return (
     <>
-      {loading ? (
-        <ZuluLoading />
-      ) : (
         <div className="container card">
           <img src={selectedProduct.image} alt="default" />
           <p>{selectedProduct.title}</p>
-          <p>COP{paid.amountFiat}</p>
-          <button type="button" onClick={onCancel}>
-            Back
-          </button>
+          <p>COP {paid.amountFiat}</p>
           <button type="button" onClick={buyProduct}>
             Buy
           </button>
+          <button type="button" onClick={onCancel}>
+            Back
+          </button>
         </div>
-      )}
     </>
   );
 }

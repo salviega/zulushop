@@ -18,10 +18,10 @@ export function ZuluProduct({product, range, setPaid, setSelectedProduct, openMo
     <li className="container card">
       {product != null ? (
           <div className="card__container">
-            <p>{product.title}</p>
+            <p>{String(product.title)}</p>
             <img src={product.image} alt="product" />
             <p>COP {paid.amountFiat}</p>
-            <button onClick={() => onClickButton(product)}>Information</button>
+              <button onClick={() => onClickButton(product)}>Information</button>
         </div>
       ) : (
         "No hay productos"

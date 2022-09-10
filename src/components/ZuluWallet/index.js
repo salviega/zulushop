@@ -40,9 +40,9 @@ export function ZuluWallet() {
 
       const web3Signer = web3Provider.getSigner()
       const chainId = await web3Signer.getChainId()
-      if (chainId !== 4) {
+      if (chainId !== 5) {
         dispatch(authLoguotAction())
-        alert("Change your network to Rinkeby's testnet!")
+        alert("Change your network to Goerli's testnet!")
         setLoading(false)
         return
       }
