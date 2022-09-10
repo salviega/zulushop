@@ -4,7 +4,7 @@ ZuluShop: Zulu - Hackathon
 
 ### Vercel deploy
 
-Vercel url: xxx
+Vercel url: https://zulushop.vercel.app/
 
 ## Quick start 🏄
 
