@@ -1,12 +1,19 @@
 .header {
   padding-top: 0.5rem;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0px 0px 120px 0px;
+  
 }
 .header-nav {
-  background: #fff;
-  border-bottom: 1.5px solid #212121;
-  height: 60px;
+  background: #98ECFF;
+  height: 100px;
   padding: 0;
   margin: 0px 10px 0px 10px;
+  list-style: none;
 
   &__logo {
     cursor: pointer;
@@ -16,7 +23,7 @@
     margin-left: 10px;
 
     a {
-      color: inherit;
+      color: #363639;
       text-decoration: none;
     }
 
@@ -25,8 +32,10 @@
       // border-top-right-radius: 50% 50%;
       // border-bottom-right-radius: 50% 50%;
       // border-bottom-left-radius: 50% 50%;
-      height: 55px;
-      width: 115px;
+      height: 40px;
+      width: auto;
+      padding-left: 20px;
+      margin-top: 30px;
     }
 
     figcaption {
@@ -63,4 +72,3 @@
     }
   }
 }
-
