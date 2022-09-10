@@ -25,6 +25,7 @@ function App() {
   const [selectedProduct, setSelectedProduct] = React.useState({});
   const [paid, setPaid] = React.useState({})
   const [openModal, setOpenModal] = React.useState(false);
+  const [disable, setDisable] = React.useState(true)
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -51,7 +52,7 @@ function App() {
   return (
     <React.Fragment>
         <ZuluHeader>
-          <ZuluWallet />
+          <ZuluWallet setDisable={setDisable} />
         </ZuluHeader>
       <main>
         {error && <ZuluError />}

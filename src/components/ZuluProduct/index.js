@@ -2,7 +2,7 @@ import React from "react";
 import "./ZuluProduct.scss";
 import { v1 as uuid } from 'uuid';
 
-export function ZuluProduct({product, range, setPaid, setSelectedProduct, openModal, setOpenModal}) {
+export function ZuluProduct({product, range, setPaid, setSelectedProduct, openModal, setOpenModal, disable}) {
   const paid = {
     id: 1,
     refer: uuid(),

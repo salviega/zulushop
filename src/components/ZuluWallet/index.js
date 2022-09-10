@@ -12,7 +12,7 @@ import {
   authRegistedAction
 } from '../../store/actions/authAction'
 
-export function ZuluWallet() {
+export function ZuluWallet({setDisable}) {
   const { wallet, isRegisted, isVerified } = useSelector(({ auth }) => auth)
   const [loading, setLoading] = React.useState(false)
   const dispatch = useDispatch()
@@ -29,14 +29,7 @@ export function ZuluWallet() {
       await web3Provider.send('eth_requestAccounts', [])
       const accounts = await web3Provider.send('eth_requestAccounts', [])
 
-      const walletAcount = accounts[0]
       dispatch(authloginAction(accounts[0]))
-
-      const verification = true // await verifyInProofOfHumanity(walletAcount);
-      if (!verification) {
-        alert('Your wallet is not registed in Proof of Humanity')
-        return
-      }
 
       const web3Signer = web3Provider.getSigner()
       const chainId = await web3Signer.getChainId()
@@ -46,8 +39,7 @@ export function ZuluWallet() {
         setLoading(false)
         return
       }
-
-
+      setDisable(true)
       setLoading(false)
       dispatch(authVerifiedAction())
       dispatch(authRegistedAction())
@@ -56,6 +48,8 @@ export function ZuluWallet() {
       dispatch(authUnregistedAction())
       dispatch(authUnverifiedAction())
       setLoading(false)
+      setDisable(false)
+
 
       if (window.location.href.includes('mypensions') || window.location.href.includes('register')) {
         dispatch(authLoguotAction())
