@@ -17,6 +17,7 @@ function App() {
   const {
     products,
     loading,
+    setLoading,
     error,
   } = React.useContext(ZuluContext)
 
@@ -68,7 +69,7 @@ function App() {
       </main>
       {openModal && (
         <ZuluModal>
-          <ZuluProductInfo selectedProduct={selectedProduct} paid={paid} setOpenModal={setOpenModal} />
+          <ZuluProductInfo selectedProduct={selectedProduct} paid={paid} loading={loading} setLoading={setLoading} setOpenModal={setOpenModal} />
         </ZuluModal>
       )}
     </React.Fragment>

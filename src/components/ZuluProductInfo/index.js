@@ -1,23 +1,17 @@
 import React from "react";
 import "./ZuluProductInfo.scss";
-import { ethers } from "ethers";
 
-import zuluUSDDevcontractAbi from "../../blockchain/hardhat/artifacts/src/blockchain/hardhat/contracts/ZuluUSD.sol/ZuluUSD.json";
-import jsonZuluUSDDevcontractAbAddress from "../../blockchain/environment/address2.json";
-import zuluShopContractAbi from "../../blockchain/hardhat/artifacts/src/blockchain/hardhat/contracts/ZuluShopContract.sol/ZuluShopContract.json";
-import jsonZuluShopContract from "../../blockchain/environment/address.json";
+import zuluUSDDevcontractAbi from "../../blockchain/hardhat/contracts/abis/ZuluUSDAbi.json";
+import zuluShopContractAbi from "../../blockchain/hardhat/contracts/abis/ZuluShopAbi.json";
 import { ZuluLoading } from "../ZuluLoading";
+import { ethers } from 'ethers';
 
-const zuluShopContractAddress = jsonZuluShopContract.zulushopcontract;
-const zuluUSDDevcontractAddress =
-  jsonZuluUSDDevcontractAbAddress.zuluUSDDevcontract;
-
-export function ZuluProductInfo({ selectedProduct, paid, setOpenModal }) {
-  const [loading, setLoading] = React.useState(false);
+export function ZuluProductInfo({ selectedProduct, paid, loading, setLoading, setOpenModal }) {
 
   const onCancel = () => {
     setOpenModal(false);
   };
+
 
   const buyProduct = async () => {
     const web3Provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -25,22 +19,22 @@ export function ZuluProductInfo({ selectedProduct, paid, setOpenModal }) {
 
     const web3Signer = web3Provider.getSigner();
     const zuluUSDDevContract = new ethers.Contract(
-      zuluUSDDevcontractAddress,
-      zuluUSDDevcontractAbi.abi,
+      '0xA7D6299F875e50Ab45F4EBB1922Ae3De03718A3c',
+      zuluUSDDevcontractAbi,
       web3Signer
     );
 
-    const response = await zuluUSDDevContract.approve(zuluShopContractAddress, paid.amountToken);
+    const response = await zuluUSDDevContract.approve('0x79D45765B2a5C1f833038C6b2e615C7f98Ab9612', paid.amountToken);
     setLoading(true);
     web3Provider
       .waitForTransaction(response.hash)
       .then(async (response) => {
         const zuluShopContract = new ethers.Contract(
-          zuluShopContractAddress,
-          zuluShopContractAbi.abi,
+          '0x79D45765B2a5C1f833038C6b2e615C7f98Ab9612',
+          zuluShopContractAbi,
           web3Signer
         )
-        console.log('contract :', zuluShopContract)
+
         const secondResponse = await zuluShopContract.transfer(
           paid.id,
           paid.refer,
@@ -52,6 +46,7 @@ export function ZuluProductInfo({ selectedProduct, paid, setOpenModal }) {
         web3Provider
         .waitForTransaction(secondResponse.hash)
         .then(async (response) => {
+          console.log(response)
           alert("Successful transaction");
           setLoading(false);
         })

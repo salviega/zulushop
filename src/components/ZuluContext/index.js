@@ -30,6 +30,7 @@ export function ZuluProvider (props) {
       value={{
         products,
         loading,
+        setLoading,
         error,
       }}
     >

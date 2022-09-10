@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -44,33 +44,8 @@ contract ZuluShopContract is Ownable {
      return balance;
   }
 
-  function transfer(
-    uint256 id_Ecomerce,
-    string memory refer,
-    uint256 amount_token,
-    uint256 amount_fiat
-  ) 
-  public {
-    sale = Sale(id_Ecomerce, msg.sender, refer, amount_token, amount_fiat);
-    emit newSale(id_Ecomerce, msg.sender, refer, amount_token, amount_fiat);
-
-    uint256 amountToken = amount_token * (10 ** _decimals);
-    
-    bool estado = _token.balanceOf(msg.sender) < amountToken;
-
-    if(estado){
-      emit stateTransaction(id_Ecomerce, refer, estado);
-      require(estado, "Monto insuficiente"); 
-    }
-
-    try _token.transferFrom(msg.sender, address(this), amountToken) returns (bool _estado) {
-      estado = _estado;
-    } catch {
-      estado = false;
-    }
-    
-    emit stateTransaction(id_Ecomerce, refer, estado);
-    require(estado, "La transacion no se logro realizar"); 
+  function transfer(uint256 _tokenAmount) public {
+    _token.transferFrom(msg.sender, address(this), _tokenAmount);
   }
 
   function withDraw() public {
