@@ -21,6 +21,7 @@ function App() {
   } = React.useContext(ZuluContext)
 
   const [selectedProduct, setSelectedProduct] = React.useState({});
+  const [paid, setPaid] = React.useState({})
   const [openModal, setOpenModal] = React.useState(false);
   const dispatch = useDispatch();
 
@@ -59,6 +60,7 @@ function App() {
               key={index} 
               product={product} 
               setSelectedProduct={setSelectedProduct} 
+              setPaid={setPaid}
               openModal={openModal}
               setOpenModal={setOpenModal} />
           ))}
@@ -66,7 +68,7 @@ function App() {
       </main>
       {openModal && (
         <ZuluModal>
-          <ZuluProductInfo selectedProduct={selectedProduct} setOpenModal={setOpenModal} />
+          <ZuluProductInfo selectedProduct={selectedProduct} paid={paid} setOpenModal={setOpenModal} />
         </ZuluModal>
       )}
     </React.Fragment>

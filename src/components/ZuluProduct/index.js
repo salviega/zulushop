@@ -1,9 +1,18 @@
 import React from "react";
 import "./ZuluProduct.scss";
+import { v1 as uuid } from 'uuid';
 
-export function ZuluProduct({product, setSelectedProduct, openModal, setOpenModal}) {
+export function ZuluProduct({product, setPaid, setSelectedProduct, openModal, setOpenModal}) {
+  const paid = {
+    id: 1,
+    refer: uuid(),
+    amountToken: Math.round(parseInt(product.price)),
+    amountFiat: Math.round(parseInt(product.price) * 4000)
+  }
+
   const onClickButton = (product) => {
     setSelectedProduct(product);
+    setPaid({...paid})
     openModal ? setOpenModal(false) : setOpenModal(true);
   };
 
@@ -13,8 +22,8 @@ export function ZuluProduct({product, setSelectedProduct, openModal, setOpenModa
           <div className="card__container">
             <p>{product.title}</p>
             <img src={product.image} alt="product" />
-            <p>${product.price}</p>
-            <button onClick={() => onClickButton(product)}>buy</button>
+            <p>COP {paid.amountFiat}</p>
+            <button onClick={() => onClickButton(product)}>Information</button>
         </div>
       ) : (
         "No hay productos"

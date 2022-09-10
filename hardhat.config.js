@@ -31,7 +31,9 @@ module.exports = {
     goerli: {
       url: process.env.RINKEBY_RPC_URL,
       accounts: [process.env.PRIVATE_KEY],
-      saveDeployments: true
+      saveDeployments: true,
+      gas: 95000000000,
+      gasPrice: 8000000000,
     }
   },
   solidity: '0.8.9'

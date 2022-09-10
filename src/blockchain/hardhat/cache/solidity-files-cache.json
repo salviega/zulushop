@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/oscar/zulushop/src/blockchain/hardhat/contracts/ZuluShopContract.sol": {
-      "lastModificationDate": 1662813056024,
-      "contentHash": "075276ac137dbae4d6ffc6fc6c655398",
+    "C:\\Users\\santiago.viana\\zulushop\\src\\blockchain\\hardhat\\contracts\\ZuluShopContract.sol": {
+      "lastModificationDate": 1662823928660,
+      "contentHash": "b6d68943383d95dbf24555052ccbe755",
       "sourceName": "src/blockchain/hardhat/contracts/ZuluShopContract.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -29,6 +29,7 @@
         }
       },
       "imports": [
+        "hardhat/console.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol"
       ],
@@ -39,8 +40,8 @@
         "ZuluShopContract"
       ]
     },
-    "/home/oscar/zulushop/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1662802499521,
+    "C:\\Users\\santiago.viana\\zulushop\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1662816138259,
       "contentHash": "e436cea06129be2c73cda4b1acc848b5",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -76,8 +77,8 @@
         "Ownable"
       ]
     },
-    "/home/oscar/zulushop/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1662802499501,
+    "C:\\Users\\santiago.viana\\zulushop\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
+      "lastModificationDate": 1662816138022,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -111,8 +112,8 @@
         "IERC20"
       ]
     },
-    "/home/oscar/zulushop/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1662802499237,
+    "C:\\Users\\santiago.viana\\zulushop\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1662816137734,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -146,8 +147,8 @@
         "Context"
       ]
     },
-    "/home/oscar/zulushop/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1662802499501,
+    "C:\\Users\\santiago.viana\\zulushop\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\IERC20Metadata.sol": {
+      "lastModificationDate": 1662816138027,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -183,8 +184,8 @@
         "IERC20Metadata"
       ]
     },
-    "/home/oscar/zulushop/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1662802499317,
+    "C:\\Users\\santiago.viana\\zulushop\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol": {
+      "lastModificationDate": 1662816137813,
       "contentHash": "af7bd64e1cfefbf6cb07f2adc1a25392",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -222,8 +223,8 @@
         "ERC20"
       ]
     },
-    "/home/oscar/zulushop/node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol": {
-      "lastModificationDate": 1662802499321,
+    "C:\\Users\\santiago.viana\\zulushop\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\ERC20Burnable.sol": {
+      "lastModificationDate": 1662816137815,
       "contentHash": "a1c7f80ae26f5b2d7d563475627fbf25",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
       "solcConfig": {
@@ -260,9 +261,9 @@
         "ERC20Burnable"
       ]
     },
-    "/home/oscar/zulushop/src/blockchain/hardhat/contracts/ZuluUSD.sol": {
-      "lastModificationDate": 1662815549823,
-      "contentHash": "cef0fe5741d9c8c75fb23c72277742bf",
+    "C:\\Users\\santiago.viana\\zulushop\\src\\blockchain\\hardhat\\contracts\\ZuluUSD.sol": {
+      "lastModificationDate": 1662819069715,
+      "contentHash": "715c29d454bd5edd398a5c1d949420ba",
       "sourceName": "src/blockchain/hardhat/contracts/ZuluUSD.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -297,6 +298,41 @@
       ],
       "artifacts": [
         "ZuluUSD"
+      ]
+    },
+    "C:\\Users\\santiago.viana\\zulushop\\node_modules\\hardhat\\console.sol": {
+      "lastModificationDate": 1662782213034,
+      "contentHash": "4ff3cd2f6272c9a6516e9ee4f2b967d3",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">= 0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
       ]
     }
   }
