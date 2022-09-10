@@ -1,18 +1,23 @@
 import React from 'react';
 import './ZuluProductInfo.scss';
 
-export function ZuluProductInfo(props) {
+export function ZuluProductInfo({selectedProduct, setOpenModal}) {
   const onCancel = () => {
-    props.setOpenModal(false);
+    setOpenModal(false);
   };
+
+  console.log(selectedProduct.title)
 
   return (
     <div className='container card'>
-      <img src={props.product.image} alt='default' />
-      <p>{props.product.title}</p>
-      <p>{props.product.price}</p>
+      <img src={selectedProduct.image} alt='default' />
+      <p>{selectedProduct.title}</p>
+      <p>${selectedProduct.price}</p>
       <button type='button' onClick={onCancel}>
-        Regresar
+        Back
+      </button>
+      <button type='button'>
+        Buy
       </button>
     </div>
   );
