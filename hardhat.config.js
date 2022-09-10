@@ -18,7 +18,7 @@ module.exports = {
       rinkeby: process.env.ETHERSCAN_API_KEY
     }
   },
-  defaultNetwork: 'hardhat',
+  defaultNetwork: 'goerli',
   networks: {
     hardhat: {
       allowUnlimitedContractSize: true,
@@ -28,7 +28,7 @@ module.exports = {
       }
     },
     localhost: {},
-    rinkeby: {
+    goerli: {
       url: process.env.RINKEBY_RPC_URL,
       accounts: [process.env.PRIVATE_KEY],
       saveDeployments: true
