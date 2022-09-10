@@ -1,7 +1,7 @@
 import './ZuluLoading.scss'
-import React from "react";
+import React from 'react'
 
-export function ZuluLoading() {
+export function ZuluLoading () {
   return (
     <div className='spinner' />
   )

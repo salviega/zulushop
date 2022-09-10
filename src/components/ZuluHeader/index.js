@@ -1,16 +1,15 @@
-import "./ZuluHeader.scss";
-import React from "react";
-import logo from '../../asserts/images/logo.png';
+import './ZuluHeader.scss'
+import React from 'react'
+import logo from '../../asserts/images/logo.png'
 
-export function ZuluHeader(props) {
-
+export function ZuluHeader (props) {
   return (
     <header className='header'>
       <nav>
         <ul className='header-nav'>
           <figure className='header-nav__logo'>
             <a href='./'>
-              <img src={logo} alt='logo'/>
+              <img src={logo} alt='logo' />
             </a>
           </figure>
           <div className='header-nav__rigth'>
@@ -23,5 +22,5 @@ export function ZuluHeader(props) {
         </ul>
       </nav>
     </header>
-  );
+  )
 }

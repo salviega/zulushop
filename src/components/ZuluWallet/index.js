@@ -12,7 +12,7 @@ import {
   authRegistedAction
 } from '../../store/actions/authAction'
 
-export function ZuluWallet({setDisable}) {
+export function ZuluWallet ({ setDisable }) {
   const { wallet, isRegisted, isVerified } = useSelector(({ auth }) => auth)
   const [loading, setLoading] = React.useState(false)
   const dispatch = useDispatch()
@@ -50,7 +50,6 @@ export function ZuluWallet({setDisable}) {
       setLoading(false)
       setDisable(false)
 
-
       if (window.location.href.includes('mypensions') || window.location.href.includes('register')) {
         dispatch(authLoguotAction())
       } else {
@@ -65,4 +64,3 @@ export function ZuluWallet({setDisable}) {
     </button>
   )
 }
-  

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export const getPaxFull = () => {
   const url = 'https://www.datos.gov.co/resource/32sa-8pi3.json'
@@ -11,5 +11,4 @@ export const getPaxFull = () => {
   return {
     getAllItems
   }
-
 }

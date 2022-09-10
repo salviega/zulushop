@@ -8,7 +8,7 @@ describe('ZuluShop Contract', () => {
     const address = deployedZuluUSD.address
 
     const [owner, addr] = await ethers.getSigners()
-    
+
     const tokens = await deployedZuluUSD.mint(owner, 1000)
 
     const zuluShopContract = await ethers.getContractFactory('ZuluShopContract', tokens)
@@ -27,6 +27,6 @@ describe('ZuluShop Contract', () => {
     const amountToken = 11
     const amountFiat = 2000
     console.log(tokens)
-    //const response = await deployed.transfer(1, owner, amountToken, amountFiat,  { value: ethers.utils.parseUnits(amountToken.toString()) })
+    // const response = await deployed.transfer(1, owner, amountToken, amountFiat,  { value: ethers.utils.parseUnits(amountToken.toString()) })
   })
 })
