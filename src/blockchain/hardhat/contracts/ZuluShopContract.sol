@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract ZuluShopContract is Ownable {
+contract ZuluShop is Ownable {
 
     IERC20 private _token;
     uint8 private _decimals;
@@ -32,6 +32,7 @@ contract ZuluShopContract is Ownable {
       bool accepct
     );
 
+    //0xa3542355604cFD6531AAf020DDAB3bDFFf4d1809
     constructor(address addressUSD, uint8 decimals) {
       _token = IERC20(addressUSD);
       _decimals = decimals;
@@ -52,24 +53,10 @@ contract ZuluShopContract is Ownable {
   public {
     sale = Sale(id_Ecomerce, msg.sender, refer, amount_token, amount_fiat);
     emit newSale(id_Ecomerce, msg.sender, refer, amount_token, amount_fiat);
-
-    uint256 amountToken = amount_token * (10 ** _decimals);
     
-    bool estado = _token.balanceOf(msg.sender) < amountToken;
+    _token.transferFrom(msg.sender, address(this), amount_token);
 
-    if(estado){
-      emit stateTransaction(id_Ecomerce, refer, estado);
-      require(estado, "Monto insuficiente"); 
-    }
 
-    try _token.transferFrom(msg.sender, address(this), amountToken) returns (bool _estado) {
-      estado = _estado;
-    } catch {
-      estado = false;
-    }
-    
-    emit stateTransaction(id_Ecomerce, refer, estado);
-    require(estado, "La transacion no se logro realizar"); 
   }
 
   function withDraw() public {
