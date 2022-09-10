@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract ZuluShop is Ownable {
+contract ZuluShopContract is Ownable {
 
     IERC20 private _token;
     uint8 private _decimals;
@@ -32,7 +32,6 @@ contract ZuluShop is Ownable {
       bool accepct
     );
 
-    //0xa3542355604cFD6531AAf020DDAB3bDFFf4d1809
     constructor(address addressUSD, uint8 decimals) {
       _token = IERC20(addressUSD);
       _decimals = decimals;
