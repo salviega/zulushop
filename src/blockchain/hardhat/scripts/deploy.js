@@ -2,7 +2,7 @@ const fs = require('fs')
 const { ethers } = require('hardhat')
 
 async function main () {
-  const addressUSD = "0xa3542355604cFD6531AAf020DDAB3bDFFf4d1809"
+  const addressUSD = "0x10B245E4880E3567d77345A3e2ecc36b9578d638"
   const decimals = 18
   const ZuluShopContract = await ethers.getContractFactory('ZuluShopContract')
   const zuluShop = await ZuluShopContract.deploy(addressUSD, decimals)

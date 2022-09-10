@@ -32,7 +32,6 @@ contract ZuluShopContract is Ownable {
       bool accepct
     );
 
-    //0xa3542355604cFD6531AAf020DDAB3bDFFf4d1809
     constructor(address addressUSD, uint8 decimals) {
       _token = IERC20(addressUSD);
       _decimals = decimals;
