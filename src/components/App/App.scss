@@ -1,0 +1,20 @@
+@import '../../styles/index.scss';
+
+.App__container {
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  width: 1400px;
+  min-width: 320px;
+
+  display: grid;
+  grid-template-rows: 4.5rem 2fr 3rem;
+}
+
+main {
+  background: #fff;
+  height: 100%;
+  padding: 0;
+  margin: 0px 10px 0px 10px;
+  width: 98%;
+}
