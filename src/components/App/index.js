@@ -18,8 +18,8 @@ function App () {
     products,
     range,
     loading,
-    setLoading,
-    error
+    error, 
+    dispatch: zuluDispatch
   } = React.useContext(ZuluContext)
 
   const [selectedProduct, setSelectedProduct] = React.useState({})
@@ -74,7 +74,7 @@ function App () {
       </main>
       {openModal && (
         <ZuluModal>
-          <ZuluProductInfo selectedProduct={selectedProduct} paid={paid} loading={loading} setLoading={setLoading} setOpenModal={setOpenModal} />
+          <ZuluProductInfo selectedProduct={selectedProduct} paid={paid} loading={loading} setOpenModal={setOpenModal} zuluDispatch={zuluDispatch} />
         </ZuluModal>
       )}
     </>

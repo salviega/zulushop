@@ -1,12 +1,17 @@
-import React from 'react'
 import './ZuluProductInfo.scss'
+import React from 'react'
+import { ethers } from 'ethers'
 
 import zuluUSDDevcontractAbi from '../../blockchain/hardhat/contracts/abis/ZuluUSDAbi.json'
 import zuluShopContractAbi from '../../blockchain/hardhat/contracts/abis/ZuluShopAbi.json'
-import { ZuluLoading } from '../ZuluLoading'
-import { ethers } from 'ethers'
+import { actionTypes } from '../ZuluContext/actionTypes'
 
-export function ZuluProductInfo ({ selectedProduct, paid, setLoading, setOpenModal }) {
+export function ZuluProductInfo ({ selectedProduct, paid, setOpenModal, zuluDispatch: dispatch }) {
+
+  // ACTION CREATORS
+  const onComplete = () => dispatch({ type: actionTypes.complete})
+  const onLoading = () => dispatch({ type: actionTypes.load})
+  
   const onCancel = () => {
     setOpenModal(false)
   }
@@ -24,7 +29,7 @@ export function ZuluProductInfo ({ selectedProduct, paid, setLoading, setOpenMod
 
     const response = await zuluUSDDevContract.approve('0x79D45765B2a5C1f833038C6b2e615C7f98Ab9612', paid.amountToken)
     setOpenModal(false)
-    setLoading(true)
+    onLoading()
     web3Provider
       .waitForTransaction(response.hash)
       .then(async (response) => {
@@ -45,17 +50,16 @@ export function ZuluProductInfo ({ selectedProduct, paid, setLoading, setOpenMod
         web3Provider
           .waitForTransaction(secondResponse.hash)
           .then(async (response) => {
-            console.log(response)
             alert('Successful transaction')
-            setLoading(false)
+            onComplete()
           })
           .catch((error) => {
-            setLoading(false)
+            onComplete()
             alert('Failed transaction')
           })
       })
       .catch((error) => {
-        setLoading(false)
+        onComplete()
         alert('Failed transaction')
       })
   }
