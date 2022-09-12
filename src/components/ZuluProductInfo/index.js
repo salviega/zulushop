@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 
 import zuluUSDDevcontractAbi from '../../blockchain/hardhat/contracts/abis/ZuluUSDAbi.json'
 import zuluShopContractAbi from '../../blockchain/hardhat/contracts/abis/ZuluShopAbi.json'
-import { actionTypes } from '../ZuluContext/actionTypes'
+import { actionTypes } from '../ZuluContext/reducer/actionTypes'
 
 export function ZuluProductInfo ({ selectedProduct, paid, setOpenModal, zuluDispatch: dispatch }) {
 

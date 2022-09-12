@@ -1,8 +1,8 @@
 import React from 'react'
 import { getData } from '../../middleware/getData'
 import { getPaxFull } from '../../middleware/getPaxFull'
-import { actionTypes } from './actionTypes'
-import { initialState, reducer } from './reducer'
+import { actionTypes } from './reducer/actionTypes'
+import { initialState, reducer } from './reducer/index'
 
 export const ZuluContext = React.createContext({
   currentUser: null
